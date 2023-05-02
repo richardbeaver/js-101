@@ -1,4 +1,10 @@
 const readline = require('readline-sync');
+const MESSAGES = require('./calculator-messages.json');
+
+
+// TODO: step 3 of calculator bonus features: Internationalization
+//  Step 16 of Lesson 2
+
 
 function prompt(message) {
   console.log(`=> ${message}`);
@@ -10,33 +16,41 @@ function invalidNumber(number) {
 
 // ========================================================
 
-prompt('Welcome to Calculator!');
+let lang;
+do {
+  prompt(MESSAGES.language);
+  lang = readline.question();
+} while (!['1', '2'].includes(lang));
+
+console.log(lang);
+
+prompt(MESSAGES[lang].welcome);
 
 while (true) {
   // Get first number
-  prompt("What's the first number?");
+  prompt(MESSAGES.getNumber1);
   let number1 = readline.question();
 
   while (invalidNumber(number1)) {
-    prompt("Hmm... that doesn't look like a valid number.");
+    prompt(MESSAGES.invalidNumber);
     number1 = readline.question();
   }
 
   // Get second number
-  prompt("What's the second number?");
+  prompt(MESSAGES.getNumber2);
   let number2 = readline.question();
 
   while (invalidNumber(number2)) {
-    prompt("Hmm... that doesn't look like a valid number.");
+    prompt(MESSAGES.invalidNumber);
     number2 = readline.question();
   }
 
   // Get operation to perform
-  prompt('What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide');
+  prompt(MESSAGES.getOperation);
   let operation = readline.question();
 
   while (!['1', '2', '3', '4'].includes(operation)) {
-    prompt('Must choose 1, 2, 3, or 4');
+    prompt(MESSAGES.invalidOperation);
     operation = readline.question();
   }
 
@@ -58,19 +72,11 @@ while (true) {
   }
 
   // Print result
-  prompt(`The result is: ${output}`);
+  prompt(`${MESSAGES.result} ${output}`);
 
   // Ask if user wants to do another calculation
-  prompt('Would you like to do another calculation? (y/n)');
+  prompt(MESSAGES.anotherCalculation);
   let answer = readline.question();
-
-  // Only accepting 'y' or 'n' as answers:
-  // while (!['y', 'n'].includes(answer)) {
-  //   prompt('Please enter "y" for yes or "n" for no.');
-  //   answer = readline.question();
-  // }
-
-  // if (answer !== 'y') break;
 
   // Any answer that does not start with 'y' or 'Y' is a no:
   if (answer[0].toLowerCase() !== 'y') break;
