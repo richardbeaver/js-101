@@ -83,5 +83,5 @@ while (true) {
   let answer = readline.question();
 
   // Any answer that does not start with 'y' or 'Y' is a no:
-  if (answer[0].toLowerCase() !== 'y') break;
+  if (answer.trim() === '' || answer[0].toLowerCase() !== 'y') break;
 }
