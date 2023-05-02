@@ -60,5 +60,4 @@ switch (operation) {
 }
 
 // Print result
-
 prompt(`The result is: ${output}`);
