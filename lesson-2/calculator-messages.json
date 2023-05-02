@@ -9,6 +9,16 @@
     "getOperation": "What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide",
     "invalidOperation": "Must choose 1, 2, 3, or 4",
     "result": "The result is:",
-    "anotherCalculation": "Would you like to do another calculation? (y/n)"
+    "anotherCalculation": "Would you like to do another calculation? (1 = yes, 2 = no)"
+  },
+  "es": {
+    "welcome": "¡Bienvenido a Calculadora!",
+    "getNumber1": "¿Cuál es el primer número?",
+    "getNumber2": "¿Cuál es el segundo número?",
+    "invalidNumber": "Hmm... eso no parece un número válido.",
+    "getOperation": "¿Qué operación te gustaría realizar?\n1) Sumar 2) Restar 3) Multiplicar 4) Dividir",
+    "invalidOperation": "Debe elegir 1, 2, 3 o 4",
+    "result": "El resultado es:",
+    "anotherCalculation": "¿Te gustaría hacer otro cálculo? (1 = sí, 2 = no)"
   }
 }

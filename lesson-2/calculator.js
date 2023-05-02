@@ -1,11 +1,6 @@
 const readline = require('readline-sync');
 const MESSAGES = require('./calculator-messages.json');
 
-
-// TODO: step 3 of calculator bonus features: Internationalization
-//  Step 16 of Lesson 2
-
-
 function prompt(message) {
   console.log(`=> ${message}`);
 }
@@ -14,43 +9,52 @@ function invalidNumber(number) {
   return number.trimStart() === '' || Number.isNaN(Number(number));
 }
 
+function messages(lang, message) {
+  return MESSAGES[lang][message];
+}
+
 // ========================================================
 
-let lang;
+// Get language
+let input;
 do {
   prompt(MESSAGES.language);
-  lang = readline.question();
-} while (!['1', '2'].includes(lang));
+  input = readline.question();
+} while (!['1', '2'].includes(input));
 
-console.log(lang);
+let lang;
+if (input === '1') lang = 'en';
+else lang = 'es';
 
-prompt(MESSAGES[lang].welcome);
+// Welcome message
+prompt(messages(lang, 'welcome'));
 
+// Loop while user wants to continue operations
 while (true) {
   // Get first number
-  prompt(MESSAGES.getNumber1);
+  prompt(messages(lang, 'getNumber1'));
   let number1 = readline.question();
 
   while (invalidNumber(number1)) {
-    prompt(MESSAGES.invalidNumber);
+    prompt(messages(lang, 'invalidNumber'));
     number1 = readline.question();
   }
 
   // Get second number
-  prompt(MESSAGES.getNumber2);
+  prompt(messages(lang, 'getNumber2'));
   let number2 = readline.question();
 
   while (invalidNumber(number2)) {
-    prompt(MESSAGES.invalidNumber);
+    prompt(messages(lang, 'invalidNumber'));
     number2 = readline.question();
   }
 
   // Get operation to perform
-  prompt(MESSAGES.getOperation);
+  prompt(messages(lang, 'getOperation'));
   let operation = readline.question();
 
   while (!['1', '2', '3', '4'].includes(operation)) {
-    prompt(MESSAGES.invalidOperation);
+    prompt(messages(lang, 'invalidOperation'));
     operation = readline.question();
   }
 
@@ -72,10 +76,10 @@ while (true) {
   }
 
   // Print result
-  prompt(`${MESSAGES.result} ${output}`);
+  prompt(`${messages(lang, 'result')} ${output}`);
 
   // Ask if user wants to do another calculation
-  prompt(MESSAGES.anotherCalculation);
+  prompt(messages(lang, 'anotherCalculation'));
   let answer = readline.question();
 
   // Any answer that does not start with 'y' or 'Y' is a no:
