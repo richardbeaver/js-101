@@ -5,7 +5,7 @@ function prompt(message) {
   console.log(`=> ${message}`);
 }
 
-function invalidNumber(number) {
+function numberInvalid(number) {
   return number.trimStart() === ''
     || Number(number) < 0
     || Number.isNaN(Number(number));
@@ -31,17 +31,17 @@ prompt(MESSAGES.welcome);
 while (true) {
   // Get loan amount
   let loanAmount =
-    getInput(MESSAGES.loanAmount, MESSAGES.invalidNumber, invalidNumber);
+    getInput(MESSAGES.loanAmount, MESSAGES.invalidNumber, numberInvalid);
   loanAmount = Number(loanAmount);
 
   // Get APR
   let aprPercentage =
-    getInput(MESSAGES.apr, MESSAGES.invalidNumber, invalidNumber);
+    getInput(MESSAGES.apr, MESSAGES.invalidNumber, numberInvalid);
   aprPercentage = Number(aprPercentage);
 
   // Get loan duration
   let durationYears =
-    getInput(MESSAGES.duration, MESSAGES.invalidNumber, invalidNumber);
+    getInput(MESSAGES.duration, MESSAGES.invalidNumber, numberInvalid);
   durationYears = Number(durationYears);
 
   // Monthly interest rate
