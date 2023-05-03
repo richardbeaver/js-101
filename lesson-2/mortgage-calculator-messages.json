@@ -1,0 +1,10 @@
+{
+  "welcome": "Welcome to Mortgage Calculator!",
+  "loanAmount": "What is the total loan amount?",
+  "apr": "What is the APR as a percentage (ex: 6 for 6%, or 7.5 for 7.5%)?",
+  "duration": "What is the loan duration (in years)?",
+  "invalidNumber": "Please enter a valid positive number.",
+  "result": "Your monthly payments would be:",
+  "anotherCalculation": "Another calculation? (y/n)",
+  "invalidAnswer": "Please enter 'y' for yes or 'n' for no."
+}
