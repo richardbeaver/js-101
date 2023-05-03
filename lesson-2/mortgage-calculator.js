@@ -1,7 +1,7 @@
 const readline = require('readline-sync');
 const MESSAGES = require('./mortgage-calculator-messages.json');
 
-function prompt(message) {
+function displayPrompt(message) {
   console.log(`=> ${message}`);
 }
 
@@ -12,11 +12,11 @@ function numberInvalid(number) {
 }
 
 function getInput(promptMessage, errorMessage, inputInvalidFunc) {
-  prompt(promptMessage);
+  displayPrompt(promptMessage);
   let input = readline.question();
 
   while (inputInvalidFunc(input)) {
-    prompt(errorMessage);
+    displayPrompt(errorMessage);
     input = readline.question();
   }
 
@@ -26,7 +26,7 @@ function getInput(promptMessage, errorMessage, inputInvalidFunc) {
 // ========================================================
 
 // Welcome message
-prompt(MESSAGES.welcome);
+displayPrompt(MESSAGES.welcome);
 
 while (true) {
   // Get loan amount
@@ -56,7 +56,7 @@ while (true) {
                  (1 - Math.pow((1 + monthlyRate), (-durationMonths))));
 
   // Print output
-  prompt(`${MESSAGES.result} $${monthlyPayment.toFixed(2)}`);
+  displayPrompt(`${MESSAGES.result} $${monthlyPayment.toFixed(2)}`);
 
   // Another calculation
   let answer =
