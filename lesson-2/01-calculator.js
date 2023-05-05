@@ -1,5 +1,5 @@
 const readline = require('readline-sync');
-const MESSAGES = require('./calculator-messages.json');
+const MESSAGES = require('./01-calculator-messages.json');
 
 function prompt(message) {
   console.log(`=> ${message}`);

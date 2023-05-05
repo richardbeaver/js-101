@@ -1,5 +1,5 @@
 const readline = require('readline-sync');
-const MESSAGES = require('./mortgage-calculator-messages.json');
+const MESSAGES = require('./05-mortgage-calculator-messages.json');
 
 function displayPrompt(message) {
   console.log(`=> ${message}`);
